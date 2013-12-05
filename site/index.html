@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.29.1"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/style.css" media="all"/>
+	<title>311 Calls 2010 to Present</title>
+  </head>
+  <body>
+	<div id="map"></div>
+	<div id="parameter" style="position:absolute; top: 10px;left:10px;">
+		<form id="map_picker"><select id="selector" onchange="updateMap(this);">
+			<option value="none">---</option>
+		</select></form>
+		<a href="#aboutModal" role="button" class="btn" data-toggle="modal"><i class="icon-info-sign"></i> About the data</a>
+
+		</div>
+	<div class="mouseover"></div>
+
+	<div id="aboutModal" class="modal hide fade">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <h3>About the Data</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>This map shows the sum of all 311 calls recorded for each zipcode from 2010 to the present. If no zipcode information is given, the 311 report is not included. Color indicates the density of 311 reports - the number of reports per 1000 people. Red indicates the highest density, clear indicates the lowest. Grey indicates no data.</p>
+	    <p>No attempt has been made to account for duplicate reports, or to normalise for a single individual making many complaints.</p>
+	    <h4>Data Sources:</h4>
+	    <ul>
+	    <li><a href="https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9" target=_blank>311 data from 2010 to the present</a></li>
+		<li><a href="http://factfinder2.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=DEC_10_SF1_P1&prodType=table" target=_blank>Population data by zipcode</li>
+		<li><a href="https://github.com/jonroberts/zipcodegrid/blob/master/data/ZipCodeData.tsv">During the shutdown, here's a parsed TSV with the data</a></li>
+		<li><a href="http://nycdata.pediacities.com/dataset/nyc-zip-code-tabulation-areas" target=_blank>Zipcode GeoJSONs</a></li>
+	    </ul>
+	    
+	  </div>
+	  <div class="modal-footer">
+	    Created by <a href="mailto:jproberts00@gmail.com">Jon Roberts</a>, with help from Jeff Allen and Ronnie Jansson
+	  </div>
+	</div>
+
+    <script type="text/javascript" src="lib/map.js"></script>
+    
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-29463581-5', 'jrsandbox.com');
+	  ga('send', 'pageview');
+	
+	</script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
